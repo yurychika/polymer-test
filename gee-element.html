@@ -1,0 +1,32 @@
+<polymer-element name='gee-element' noscript>
+
+	<template>
+		<span>this is gee's polymer template</span><br>
+		<span>owner: is {{owner}}</span><br>
+
+		<span id='caption' style='font-weight: bold;color:orange'>no ready</span>
+	</template>
+
+	<script>
+		Polymer('gee-element', {
+			owner: 'gee',
+			ready: function(){
+				console.log('in polymer ready funciton');
+				console.log('owner is ' + this.owner);
+				var t = this;
+
+				console.log(this.$);
+
+				setTimeout(function(){
+					t.$.caption.innerHTML = 'ready!';
+					t.owner = 'yurychika';
+				}, 2000);
+			},
+
+			created: function(){
+				console.log('widget created');
+			}
+		});
+	</script>
+
+</polymer-element>
